@@ -1,0 +1,400 @@
+/* ==================================================
+   DESTAQUES.CSS — SEÇÃO DE DESTAQUES
+   ================================================== */
+
+
+/* ==================================================
+   1. ESTRUTURA PRINCIPAL
+   ================================================== */
+
+.destaques {
+    width: 1360px;
+    height: 910px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* ==================================================
+   2. GRUPOS ESQUERDO E DIREITO
+   ================================================== */
+
+.destaques-esquerda,
+.destaques-direita {
+    width: 665px;
+    height: 830px;
+}
+
+
+/* ==================================================
+   3. GRUPO ESQUERDO
+   ================================================== */
+
+.destaques-esquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+
+/* ==================================================
+   4. DESTAQUE PRINCIPAL COM TEXTO SOBRE A IMAGEM
+   ================================================== */
+
+.destaque-principal {
+    width: 665px;
+    height: 500px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url("images/products/card_imagem.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #FFFFFF;
+}
+
+.destaque-principal p,
+.destaque-principal h2,
+.destaque-principal a {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==================================================
+   5. BOTÕES DO DESTAQUE PRINCIPAL
+   ================================================== */
+
+.destaque-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.destaque-botoes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 164px;
+    height: 48px;
+    border: 1px solid #FFFFFF;
+    border-radius: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.destaque-botoes a:hover {
+    background-color: #8038FF;
+    color: #FFFFFF;
+}
+
+
+/* ==================================================
+   6. IMAGEM INFERIOR DO GRUPO ESQUERDO
+   ================================================== */
+
+.destaque-inferior {
+    width: 665px;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.destaque-inferior img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   7. GRUPO DIREITO
+   ================================================== */
+
+.destaques-direita {
+    width: 665px;
+    height: 830px;
+}
+
+
+/* ==================================================
+   8. GRID DAS IMAGENS
+   ================================================== */
+
+.destaques-lista {
+    width: 665px;
+    height: 830px;
+    display: grid;
+    grid-template-columns: 317.5px 1fr;
+    grid-template-rows: 300px 500px;
+    grid-auto-flow: row;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.destaques-lista li {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+
+/* ==================================================
+   9. POSICIONAMENTO DAS IMAGENS NO GRID
+   ================================================== */
+
+/* Tênis superior */
+
+.destaques-lista li:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+/* Modelo */
+
+.destaques-lista li:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+/* Tênis superior direito */
+
+.destaques-lista li:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    height: 245px;
+    align-self: start;
+}
+
+/* Tênis inferior direito */
+
+.destaques-lista li:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    height: 245px;
+    align-self: end;
+}
+
+
+/* ==================================================
+   10. IMAGENS DO GRID
+   ================================================== */
+
+.destaques-lista img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   11. RESPONSIVIDADE — TABLETS
+   ================================================== */
+
+@media (max-width: 1390px) {
+
+    .destaques {
+        width: calc(100% - 32px);
+        height: auto;
+        gap: 20px;
+    }
+
+    .destaques-esquerda,
+    .destaques-direita {
+        width: calc((100% - 20px) / 2);
+        height: auto;
+        min-width: 0;
+    }
+
+    .destaque-principal,
+    .destaque-inferior {
+        width: 100%;
+    }
+
+    .destaque-principal {
+        height: auto;
+        aspect-ratio: 665 / 500;
+    }
+
+    .destaque-inferior {
+        height: auto;
+        aspect-ratio: 665 / 300;
+    }
+
+    .destaques-lista {
+        width: 100%;
+        height: auto;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 500px);
+    }
+
+    .destaques-lista li:first-child {
+        height: auto;
+        aspect-ratio: 665 / 300;
+    }
+
+    .destaques-lista li:nth-child(2) {
+        height: 500px;
+    }
+
+    .destaques-lista li:nth-child(3),
+    .destaques-lista li:nth-child(4) {
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .destaques-lista li:nth-child(3) {
+        align-self: start;
+    }
+
+    .destaques-lista li:nth-child(4) {
+        align-self: end;
+    }
+
+    .destaque-botoes a {
+        width: 140px;
+        font-size: 20px;
+    }
+}
+
+
+/* ==================================================
+   12. RESPONSIVIDADE — CELULARES
+   ================================================== */
+
+@media (max-width: 768px) {
+
+    .destaques {
+        width: calc(100% - 32px);
+        height: auto;
+        margin: 24px auto;
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    .destaques-esquerda,
+    .destaques-direita {
+        width: 100%;
+        height: auto;
+    }
+
+    .destaques-esquerda {
+        gap: 16px;
+    }
+
+    .destaque-principal {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        aspect-ratio: auto;
+        padding: 24px 16px;
+        box-sizing: border-box;
+    }
+
+    .destaque-principal h2 {
+        font-size: clamp(22px, 5vw, 32px);
+    }
+
+    .destaque-principal p {
+        font-size: 16px;
+    }
+
+    .destaque-botoes {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .destaque-botoes a {
+        width: auto;
+        min-width: 120px;
+        height: 42px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .destaque-inferior {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 665 / 300;
+    }
+
+    .destaques-lista {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .destaques-lista li:first-child,
+    .destaques-lista li:nth-child(2),
+    .destaques-lista li:nth-child(3),
+    .destaques-lista li:nth-child(4) {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .destaques-lista li:nth-child(3),
+    .destaques-lista li:nth-child(4) {
+        align-self: auto;
+    }
+
+    /* Imagens dos cards no celular */
+    .destaques-lista img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Card da modelo */
+    .destaques-lista li:nth-child(2) img {
+        aspect-ratio: 3 / 4;
+    }
+}
+
+
+/* ==================================================
+   13. RESPONSIVIDADE — CELULARES PEQUENOS
+   ================================================== */
+
+@media (max-width: 390px) {
+
+    .destaques {
+        width: calc(100% - 24px);
+        gap: 20px;
+    }
+
+    .destaque-principal {
+        min-height: 280px;
+        padding: 20px 12px;
+    }
+
+    .destaque-botoes a {
+        min-width: 105px;
+        font-size: 14px;
+    }
+
+    .destaques-lista {
+        gap: 12px;
+    }
+}
